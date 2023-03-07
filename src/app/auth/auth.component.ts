@@ -37,18 +37,18 @@ export class AuthComponent {
       authObs = this.authService.signup(email, password);
     }
 
-    authObs.subscribe(
-      resData => {
+    authObs.subscribe({
+      next: (resData) => {
         console.log(resData);
         this.isLoading = false;
         this.router.navigate(['/recipes']);
       },
-      errorMessage => {
+      error: (errorMessage) => {
         console.log(errorMessage);
         this.error = errorMessage;
         this.isLoading = false;
       }
-    );
+    });
 
     form.reset();
   }

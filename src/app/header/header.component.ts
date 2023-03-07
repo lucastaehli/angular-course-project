@@ -9,7 +9,7 @@ import {Subscription} from "rxjs";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   isAuthenticated = false;
   private userSub: Subscription;
 
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit() {
     this.userSub = this.authService.user.subscribe(user => {
-      this.isAuthenticated = !!user;
+      this.isAuthenticated = !!user; // !user ? false : true;
       console.log(!user);
       console.log(!!user);
     });
