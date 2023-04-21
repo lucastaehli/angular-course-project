@@ -46,7 +46,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ShoppingListService,
+  providers: [
+    ShoppingListService,
     RecipeService,
     DataStorageService,
     RecipesResolverService,

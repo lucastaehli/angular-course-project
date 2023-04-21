@@ -13,6 +13,9 @@ import { AuthService } from './auth.service';
 export class AuthInterceptorService implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
+  /**
+   * Adds the user token to the request in order to fetch data from firebase
+   */
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     return this.authService.user.pipe(
       // only take one value from observable: get user and unsubscribe afterwards

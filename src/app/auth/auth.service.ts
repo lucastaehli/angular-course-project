@@ -107,6 +107,7 @@ export class AuthService {
   }
 
   autoLogout(expirationDuration: number) {
+    //set timer to automatically log out user after duration
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, expirationDuration);
@@ -122,6 +123,7 @@ export class AuthService {
     const user = new User(email, userId, token, expirationDate);
     this.user.next(user);
     this.autoLogout(expiresIn * 1000);
+    // Write to local storage so it will survive logout
     localStorage.setItem('userData', JSON.stringify(user));
   }
 
